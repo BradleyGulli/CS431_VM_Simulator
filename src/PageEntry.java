@@ -1,29 +1,19 @@
-public class TLBEntry {
+public class PageEntry {
 
-    private int virtualPageNumber;
     private int validBit;
     private int referenceBit;
     private int dirtyBit;
     private int pageFrameNumber;
 
-    public TLBEntry(final int virtualPageNumber,
-                    final int validBit,
-                    final int referenceBit,
-                    final int dirtyBit,
-                    final int pageFrameNumber) {
-        this.virtualPageNumber = virtualPageNumber;
+
+    public PageEntry(final int validBit,
+                     final int referenceBit,
+                     final int dirtyBit,
+                     final int pageFrameNumber) {
         this.validBit = validBit;
-        this.dirtyBit = dirtyBit;
         this.referenceBit = referenceBit;
+        this.dirtyBit = dirtyBit;
         this.pageFrameNumber = pageFrameNumber;
-    }
-
-    public int getVirtualPageNumber() {
-        return virtualPageNumber;
-    }
-
-    public void setVirtualPageNumber(final int virtualPageNumber) {
-        this.virtualPageNumber = virtualPageNumber;
     }
 
     public int getValidBit() {
