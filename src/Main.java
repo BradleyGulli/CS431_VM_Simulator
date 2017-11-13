@@ -27,7 +27,7 @@ public class Main {
 
         try {
             Files.createDirectories(Paths.get(workingDir));
-            for(File file : files){
+            for(File file : files) {
                 Files.createFile(Paths.get(workingDir+file.getName()));
             }
 
@@ -57,8 +57,15 @@ public class Main {
 
     private static void creatingOutput() {
 
-        final String HEADER = "Address,Read/Write,SoftMiss,HardMiss,AHit\n";
+        final String HEADER = "Address, Read/Write, SoftMiss, HardMiss, AHit, PageFault, ReadIn/WriteOut\n";
         final String fileName = "Working_Directory/outputs.csv";
+
+        File file = new File(fileName);
+
+        if (file.exists()){
+            file.delete();
+        }
+
         try {
             Path destination = Paths.get(fileName);
             Files.createFile(destination);
@@ -71,7 +78,7 @@ public class Main {
         final String fileName = "Working_Directory/outputs.csv";
 
         try {
-            FileWriter fw = new FileWriter(fileName);
+            FileWriter fw = new FileWriter(fileName, true);
             fw.append(content);
             fw.close();
         } catch (IOException e) {
