@@ -7,7 +7,7 @@ public class TLB {
     public int read(final int pageNumber) {
         TLBEntry correctEntry = null;
         for (TLBEntry entry : tlbEntries) {
-            if (entry.getVirtualPageNumber() == pageNumber) {
+            if (entry != null && entry.getVirtualPageNumber() == pageNumber) {
                 return entry.getPageFrameNumber();
             }
         }

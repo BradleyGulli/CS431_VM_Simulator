@@ -8,12 +8,15 @@ import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         String testFileName = args[0];
 
 
         copyToWorkingDirectory();
         creatingOutput();
+
+        CPU cpu = new CPU();
+        cpu.read(testFileName);
 
     }
 
