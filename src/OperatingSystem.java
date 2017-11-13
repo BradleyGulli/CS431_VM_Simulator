@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
@@ -37,6 +39,15 @@ public class OperatingSystem {
             emptyFrame = evictFromMemory();
             updatePageInformation(data, pageNumber, emptyFrame);
         }
+    }
+
+    public void writeToDisk(final String fileName, final int[] data ) throws IOException{
+        FileWriter fw = new FileWriter(fileName);
+        for (int i = 0; i < data.length; i++) {
+            fw.append(String.valueOf(data[i]+"\n"));
+        }
+        fw.close();
+
     }
 
     private void updatePageInformation(final int[] data, final int pageNumber, final int emptyFrame) {
