@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class MMU {
 
     private TLB tlb = new TLB();
@@ -7,10 +9,14 @@ public class MMU {
         int pageFrameNumber = tlb.read(virtualPageNumber);
         int physicalAddress;
         if (pageFrameNumber != -1) {
-            physicalAddress = pageFrameNumber + offset;
-            physicalMemory.readFromMemory(physicalAddress);
+            physicalMemory.readFromMemory(pageFrameNumber, offset);
         } else {
             pageFrameNumber = physicalMemory.readFromPageTable(virtualPageNumber);
+            if (pageFrameNumber != -1) {
+                physicalMemory.readFromMemory(pageFrameNumber, offset);
+            } else {
+
+            }
 
         }
     }

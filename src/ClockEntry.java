@@ -1,20 +1,10 @@
 public class ClockEntry {
 
-    private int pageFrameNumber;
     private PageEntry pageEntry;
     private ClockEntry next;
+    private int pageFrameNumber;
 
-    public ClockEntry(final int pageFrameNumber, final ClockEntry next, final PageEntry pageEntry) {
-        this.pageFrameNumber = pageFrameNumber;
-        this.next = next;
-        this.pageEntry = pageEntry;
-    }
-
-    public int getPageFrameNumber() {
-        return pageFrameNumber;
-    }
-
-    public void setPageFrameNumber(final int pageFrameNumber) {
+    public ClockEntry(final int pageFrameNumber) {
         this.pageFrameNumber = pageFrameNumber;
     }
 
@@ -24,5 +14,21 @@ public class ClockEntry {
 
     public void setNext(final ClockEntry next) {
         this.next = next;
+    }
+
+    public PageEntry getPageEntry() {
+        return pageEntry;
+    }
+
+    public void setPageEntry(final PageEntry pageEntry) {
+        this.pageEntry = pageEntry;
+    }
+
+    public int getPageFrameNumber() {
+        return pageFrameNumber;
+    }
+
+    public void setPageFrameNumber(final int pageFrameNumber) {
+        this.pageFrameNumber = pageFrameNumber;
     }
 }
